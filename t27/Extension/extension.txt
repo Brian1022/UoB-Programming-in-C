@@ -1,0 +1,24 @@
+Motivation
+The implementation replaces 27-way trees with hash tables for word storage and lookup. The aim is to compare the effectiveness of these data structures when dealing with dictionary-related tasks, focusing on real-world performance, memory usage and complexity.
+
+How it works
+
+Hash tables are used to store words and resolve collisions by chaining.
+The average time complexity of insertion and lookup of hash tables is O(1).
+For simplicity, collision processing is done through chained tables.
+Comparison with 27-dimensional tree:
+
+Speed:
+Since the average complexity of a hash is O(1), hash insertions and lookups are faster in most cases.
+In cases where sorted traversals or prefix-based operations (such as dict_autocomplete()) are required, the performance of 27-way trees may be better.
+Memory consumption:
+When the dictionary is sparse, the hash table consumes less memory because it avoids creating empty branches.
+Tree structures may consume more memory because each node has a fixed array of child node pointers.
+Testability
+Hash tables are simpler to implement and easier to debug.
+Tree structures require careful handling of edge cases such as apostrophes and empty branches.
+Practical observations
+
+Hash tables are more efficient for large dictionaries where prefix operations are not important.
+When frequent prefix operations (e.g., auto-completion) are required, 27-way trees excel.
+In practice, the choice between these two methods depends on the specific use case. Hash tables are suitable for general-purpose dictionaries, while trees are suitable for language tasks involving structured traversal.
